@@ -1,1 +1,204 @@
-test
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Projet TFE : Casiers Connectés - Ismail Lamrine</title>
+<style>
+  /* Reset */
+  * {
+    margin: 0; padding: 0; box-sizing: border-box;
+  }
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #121212;
+    color: #e0e0e0;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+  header {
+    background: linear-gradient(90deg, #0078d7, #00bfff);
+    padding: 1.5rem 1rem 1rem 1rem;
+    text-align: center;
+    box-shadow: 0 3px 10px rgba(0,120,215,.5);
+    animation: fadeInDown 1s ease forwards;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  header h1 {
+    font-size: 2.8rem;
+    font-weight: bold;
+    text-shadow: 0 0 8px #00bfffcc;
+    letter-spacing: 2px;
+  }
+  header p {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #e9f0ff;
+    margin-top: 0.3rem;
+    letter-spacing: 1.1px;
+    text-shadow: 0 0 6px #0099ff99;
+  }
+  .container {
+    max-width: 960px;
+    margin: 2rem auto;
+    padding: 0 2rem;
+  }
+  section {
+    background: #1e1e1e;
+    border-radius: 12px;
+    padding: 2rem;
+    margin: 1.5rem 0;
+    box-shadow: 0 0 15px #0078d7cc;
+    transform: translateY(30px);
+    opacity: 0;
+    animation-fill-mode: forwards;
+  }
+  section:nth-child(odd) {
+    animation-name: slideInLeft;
+  }
+  section:nth-child(even) {
+    animation-name: slideInRight;
+  }
+  section h2 {
+    margin-bottom: 1rem;
+    color: #00bfff;
+    text-shadow: 0 0 6px #00bfffcc;
+    font-weight: 700;
+    font-size: 1.8rem;
+    letter-spacing: 1.2px;
+    border-bottom: 2px solid #0078d7;
+    padding-bottom: .5rem;
+  }
+  p {
+    font-size: 1.1rem;
+    margin-bottom: 1.2rem;
+    color: #cccccc;
+  }
+  ul {
+    margin: 10px 20px;
+    list-style: inside disc;
+    color: #a0dfff;
+  }
+  ul li {
+    margin-bottom: 10px;
+  }
+  /* Table style */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    background: #121212;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #0078d7;
+  }
+  th {
+    background: #0078d7;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+  }
+  tr:hover {
+    background: #003f7f66;
+  }
+
+  /* Animations */
+  @keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-30px);}
+    to { opacity: 1; transform: translateY(0);}
+  }
+  @keyframes slideInLeft {
+    from {opacity: 0; transform: translateX(-50px);}
+    to {opacity: 1; transform: translateX(0);}
+  }
+  @keyframes slideInRight {
+    from {opacity: 0; transform: translateX(50px);}
+    to {opacity: 1; transform: translateX(0);}
+  }
+
+  /* Responsive */
+  @media (max-width: 600px) {
+    section {
+      padding: 1.3rem;
+      font-size: 0.95rem;
+    }
+    header h1 {
+      font-size: 2rem;
+    }
+    th, td {
+      padding: 8px 10px;
+    }
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>Projet TFE - Casiers Connectés</h1>
+  <p>Ismail Lamrine</p>
+</header>
+
+<div class="container">
+  <section>
+    <h2>Présentation du Projet</h2>
+    <p>Ce projet consiste à concevoir un système de casiers connectés pilotés par un Raspberry Pi, intégrant des capteurs de poids, des serrures électriques et un module RFID, contrôlables via une application mobile dédiée. Le but est de moderniser la gestion des casiers dans les espaces publics ou privés, comme les salles de sport ou espaces commerciaux, en offrant une expérience sécurisée, simple et intuitive aux utilisateurs.</p>
+  </section>
+
+  <section>
+    <h2>Fonctionnalités Principales</h2>
+    <ul>
+      <li>Mesure précise du poids pour la détection d'objet présent</li>
+      <li>Serrure électrique solénoïde fiable et contrôlable à distance</li>
+      <li>Capteurs d'ouverture magnétiques pour détection d'intrusion</li>
+      <li>Module RFID pour authentification sans contact</li>
+      <li>Application mobile pour ouverture sécurisée et notifications</li>
+      <li>Sauvegarde automatique et régulière de la base de données SQLite</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Budget Estimatif</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Composant</th>
+          <th>Quantité</th>
+          <th>Coût (€)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Capteurs de poids + module HX711</td><td>2</td><td>30</td></tr>
+        <tr><td>Serrures électriques solénoïdes</td><td>2</td><td>37</td></tr>
+        <tr><td>Capteurs magnétiques d'ouverture</td><td>2</td><td>17</td></tr>
+        <tr><td>Capteurs température / humidité DHT22</td><td>2</td><td>10</td></tr>
+        <tr><td>Modules RFID RC522</td><td>2</td><td>20</td></tr>
+        <tr><td>Raspberry Pi 4B (4 Go RAM)</td><td>1</td><td>50</td></tr>
+        <tr><td><strong>Total estimé</strong></td><td></td><td><strong>164 €</strong></td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>Avantages du Projet</h2>
+    <p>
+      L’introduction des casiers connectés dans des salles de sport comme Basic Fit, Stadium ou Jims à Bruxelles est une opportunité innovante pour améliorer considérablement l’expérience utilisateur. Ces casiers permettent d’éviter les désagréments liés aux systèmes traditionnels basés sur des codes PIN physiques, souvent oubliés, et qui obligent les usagers à solliciter l’accueil avec une preuve d’identité. Grâce à l’ouverture sécurisée via smartphone, chaque membre gagne du temps et bénéficie d’un service fluide, sûr et moderne. Ce système réduit aussi la charge pour le personnel et augmente la sécurité.
+    </p>
+  </section>
+
+  <section>
+    <h2>Le Rôle du Système d’Exploitation (OS)</h2>
+    <p>
+      Le système d’exploitation, typiquement une distribution Linux installée sur un Raspberry Pi, est la clé technique du projet. Il permet de gérer la communication entre les capteurs, serrures, la base de données SQLite et l’application mobile. Il assure également la sécurisation des échanges, la disponibilité continue du service, et l’exécution automatisée de sauvegardes régulières de la base de données par un script, garantissant la pérennité et l’intégrité des données. Cette base fiable assure la robustesse et la cohérence globale du système, garantissant une expérience utilisateur optimale.<br><br>
+      Le script de sauvegarde automatisée est essentiel pour éviter la perte de données et faciliter la restauration. En planifiant régulièrement cette tâche, on sécurise la base et on peut rétablir rapidement le service en cas de problème.
+    </p>
+  </section>
+</div>
+
+</body>
+</html>
